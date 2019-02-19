@@ -1,0 +1,81 @@
+/*
+Filename: hw6_leapYear_abarajas.cpp
+Author: Alexis Barajas
+Desc: Write a program that computes whether or not a year entered by the user is a leap year. 
+Date: 2/18/19
+
+*/
+
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+//Prototypes
+void intro();
+int getYear();
+bool leapYear(int);
+void showYear(int, bool);
+
+int main ()
+{
+    int numYear;
+    bool leap;
+    intro();
+    numYear = getYear();
+    leap = leapYear(numYear);
+    showYear(numYear, leap);
+    
+   
+    return 0;
+}
+
+//Function definitions
+
+void intro()
+{
+    cout << "\t This program will tell you if the year you entered is a leap year or not.\n";
+    return;
+}
+int getYear()
+{
+    int year;
+    do {
+        cout << "Enter a year\n" << endl;
+        cin >> year;
+    }
+    while (year < 1000);
+    return year;
+}
+bool leapYear(int year)
+{
+    int years;
+    bool leapYear;
+    if (years % 4 == 0) 
+    {
+        if (years % 100 == 0)
+        {
+            if (years % 400 == 0)
+             leapYear = true;
+            else
+            leapYear = false;
+            
+        }
+        else
+        leapYear = false;
+    }
+    else 
+    leapYear = false;
+    return leapYear;
+}
+void showYear(int year, bool leapYear)
+{
+    if (leapYear == true)
+    cout << "The year " <<  year << " " << "is a leap year." << endl;
+    else
+    cout << "The year " << year << " " << "is not a leap year." << endl;
+    return;
+}
+
+
